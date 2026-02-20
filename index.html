@@ -5,172 +5,197 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Angel 💖</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Playfair Display', serif;
-      color: #fff;
-      padding: 20px;
+    body{
+      margin:0;
+      min-height:100vh;
+      background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      font-family:'Playfair Display',serif;
+      color:#fff;
+      padding:20px 10px;
+      overflow-x:hidden;
+      overflow-y:auto;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-      border-radius: 20px;
-      padding: 40px 30px;
-      max-width: 750px;
-      width: 100%;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-      text-align: center;
-      animation: fadeIn 1.5s ease;
+    .card{
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(12px);
+      border-radius:20px;
+      padding:28px 18px;
+      max-width:750px;
+      width:100%;
+      box-shadow:0 20px 40px rgba(0,0,0,.4);
+      text-align:center;
+      animation:fadeIn 1.2s ease;
+      z-index:5;
     }
 
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3.5rem;
-      margin-bottom: 10px;
-      color: #ffb6c1;
+    h1{
+      font-family:'Great Vibes',cursive;
+      font-size:3rem;
+      margin-bottom:10px;
+      color:#ffb6c1;
     }
 
-    .subtitle {
-      font-size: 0.95rem;
-      opacity: 0.9;
-      margin-bottom: 25px;
+    .subtitle{
+      font-size:.95rem;
+      opacity:.9;
+      margin-bottom:20px;
     }
 
-    .music {
-      margin-bottom: 30px;
+    iframe{
+      width:100%;
+      height:80px;
+      border-radius:10px;
+      border:none;
     }
 
-    audio {
-      width: 100%;
-      border-radius: 10px;
-      outline: none;
+    .poem{
+      font-size:1.05rem;
+      line-height:1.9;
+      white-space:pre-line;
     }
 
-    .poem {
-      font-size: 1.05rem;
-      line-height: 1.9;
-      white-space: pre-line;
+    .dedication{
+      margin-top:25px;
+      font-style:italic;
+      opacity:.9;
     }
 
-    .dedication {
-      margin-top: 30px;
-      font-style: italic;
-      opacity: 0.9;
+    footer{
+      margin-top:15px;
+      font-size:.85rem;
+      opacity:.7;
     }
 
-    footer {
-      margin-top: 15px;
-      font-size: 0.85rem;
-      opacity: 0.7;
+    .love-btn{
+      background:linear-gradient(135deg,#ff758c,#ff7eb3);
+      border:none;
+      padding:12px 26px;
+      border-radius:30px;
+      font-size:1rem;
+      color:#fff;
+      cursor:pointer;
+      margin-bottom:20px;
+      box-shadow:0 8px 20px rgba(0,0,0,.3);
+      transition:.2s;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  
-    .love-btn {
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
-      border: none;
-      padding: 12px 26px;
-      border-radius: 30px;
-      font-size: 1rem;
-      color: #fff;
-      cursor: pointer;
-      margin-bottom: 25px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    .love-btn:hover{transform:scale(1.05)}
+
+    .popup{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.6);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:3000;
+      padding:15px;
     }
 
-    .love-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    .popup-card{
+      background:rgba(255,255,255,.12);
+      backdrop-filter:blur(14px);
+      padding:25px 18px;
+      border-radius:18px;
+      text-align:center;
+      max-width:420px;
+      width:100%;
+      animation:fadeIn .5s ease;
     }
 
-    .popup {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
+    .popup-card h2{
+      font-family:'Great Vibes',cursive;
+      font-size:2.3rem;
+      color:#ffb6c1;
+      margin-bottom:15px;
     }
 
-    .popup-card {
-      background: rgba(255,255,255,0.12);
-      backdrop-filter: blur(14px);
-      padding: 35px 30px;
-      border-radius: 18px;
-      text-align: center;
-      max-width: 420px;
-      animation: fadeIn 0.5s ease;
+    .popup-card p{
+      font-size:1.05rem;
+      line-height:1.7;
+      margin-bottom:20px;
     }
 
-    .popup-card h2 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.4rem;
-      color: #ffb6c1;
-      margin-bottom: 15px;
-    }
-
-    .popup-card p {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    .close-btn {
-      background: #ff7eb3;
-      border: none;
-      padding: 8px 20px;
-      border-radius: 20px;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    .close-btn:hover { opacity: 0.9; }
-  
-    .envelope{
-      position:fixed; inset:0; background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-      display:flex; justify-content:center; align-items:center; z-index:2000;
+    .close-btn{
+      background:#ff7eb3;
+      border:none;
+      padding:8px 20px;
+      border-radius:20px;
+      color:#fff;
       cursor:pointer;
     }
-    .env-card{
-      width:300px; height:200px; background:#fff; border-radius:12px;
-      position:relative; box-shadow:0 15px 40px rgba(0,0,0,.35);
-      animation:pulse 1.5s infinite;
-      display:flex; justify-content:center; align-items:center;
+
+    .envelope{
+      position:fixed;
+      inset:0;
+      background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      z-index:5000;
+      cursor:pointer;
     }
-    .env-text{font-size:1.1rem; color:#ff5e8a; font-weight:600;}
-    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-  
+
+    .env-card{
+      width:280px;
+      height:180px;
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 15px 40px rgba(0,0,0,.35);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      animation:pulse 1.4s infinite;
+    }
+
+    .env-text{
+      font-size:1.1rem;
+      color:#ff5e8a;
+      font-weight:600;
+    }
+
     .floating-heart{
       position:fixed;
       bottom:-20px;
-      font-size:20px;
+      font-size:18px;
       color:rgba(255,182,193,.9);
       animation:floatUp linear forwards;
-      z-index:3000;
       pointer-events:none;
+      z-index:2000;
     }
+
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(20px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    @keyframes pulse{
+      0%,100%{transform:scale(1)}
+      50%{transform:scale(1.05)}
+    }
+
     @keyframes floatUp{
       from{transform:translateY(0);opacity:1}
       to{transform:translateY(-110vh);opacity:0}
     }
+
+    @media(max-width:600px){
+      h1{font-size:2.4rem}
+      .poem{font-size:.95rem}
+    }
   </style>
+
   <script>
     function openEnvelope(){
       document.getElementById('envelope').style.display='none';
     }
-  
+
     function createHeart(){
       const heart=document.createElement('div');
       heart.className='floating-heart';
@@ -180,33 +205,33 @@
       document.body.appendChild(heart);
       setTimeout(()=>heart.remove(),6000);
     }
-    setInterval(createHeart,350);
-  </script>
-  <script>
-    function showLove() {
-      document.getElementById('popup').style.display = 'flex';
-    }
+    setInterval(createHeart,400);
 
-    function closeLove() {
-      document.getElementById('popup').style.display = 'none';
+    function showLove(){
+      document.getElementById('popup').style.display='flex';
+    }
+    function closeLove(){
+      document.getElementById('popup').style.display='none';
     }
   </script>
 </head>
+
 <body>
+
   <div class="envelope" id="envelope" onclick="openEnvelope()">
     <div class="env-card">
       <div class="env-text">💌 Click to Open</div>
     </div>
   </div>
+
   <div class="card">
     <h1>the-ANGEL 💖</h1>
     <div class="subtitle">A love poem written for Angel — the girl who became my home</div>
 
-    <div class="music">
-      <iframe width="100%" height="80" src="https://www.youtube.com/embed/1bZ6JY9Z1m8?autoplay=1&loop=1&playlist=1bZ6JY9Z1m8" title="Some of Your Love - PARTYNEXTDOOR" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius:10px;"></iframe>
-      <small>🎧 Background music: Some of Your Love — PARTYNEXTDOOR</small>
-    </div>
+    <iframe src="https://www.youtube.com/embed/1bZ6JY9Z1m8?autoplay=1&loop=1&playlist=1bZ6JY9Z1m8" allow="autoplay; encrypted-media"></iframe>
+    <small>🎧 Some of Your Love — PARTYNEXTDOOR</small>
 
+    <br><br>
     <button class="love-btn" onclick="showLove()">💖 Click for a Surprise 💖</button>
 
     <div class="poem">
@@ -260,6 +285,7 @@ My ANGEL.
     <div class="dedication">💌 Dedicated to Angel — the love of my life</div>
     <footer>Made with ❤️</footer>
   </div>
+
   <div class="popup" id="popup">
     <div class="popup-card">
       <h2>Angel 💖</h2>
@@ -271,5 +297,6 @@ My ANGEL.
       <button class="close-btn" onclick="closeLove()">Close</button>
     </div>
   </div>
+
 </body>
 </html>
